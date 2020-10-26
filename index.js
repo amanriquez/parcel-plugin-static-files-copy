@@ -111,7 +111,7 @@ module.exports = bundler => {
         function copySingleFile(bundleDir, dest, filepath) {
             if (path.basename(filepath) === 'manifest.json'){
                 const manifest = require(filepath)
-                if (oldManifest.version !== pkgVersion) {
+                if (manifest.version !== pkgVersion) {
                   const data = JSON.stringify({...manifest, version: pkgVersion}, null, 2)
                   fs.writeFileSync(filepath, data)
                 }
